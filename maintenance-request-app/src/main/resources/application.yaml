@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    password: request
+    username: request
+    url: jdbc:mysql://localhost:3306/maintenancerequest
+
+logging:
+  level:
+    root: warn
+    '[com.promineotech]' : debug
