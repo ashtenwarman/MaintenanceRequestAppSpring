@@ -20,6 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestControllerAdvice
 @Slf4j
+
+//handles exceptions, may print stack trace to help debug
 public class GlobalErrorHandler {
 	
 	private enum LogStatus {

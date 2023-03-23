@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.promineotech.requestapp.service.DeleteService;
 
 @RestController
+
+//Delete-controller implementing class
 public class DefaultDeleteController implements DeleteController {
 
 	@Autowired

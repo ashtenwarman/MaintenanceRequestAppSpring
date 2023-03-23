@@ -7,6 +7,7 @@ import com.promineotech.requestapp.entity.MaintenanceRequest;
 import com.promineotech.requestapp.entity.Property;
 import com.promineotech.requestapp.entity.RequestType;
 
+//DAO interface; receives data from service layer to be sent to database
 public interface CreateDao {
 
 	Property fetchProperty(Property property);

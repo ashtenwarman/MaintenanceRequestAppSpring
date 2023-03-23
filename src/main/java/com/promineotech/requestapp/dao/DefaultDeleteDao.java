@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
+//Speaks to database using data from controller and service layers
 public class DefaultDeleteDao implements DeleteDao {
 
 	@Autowired

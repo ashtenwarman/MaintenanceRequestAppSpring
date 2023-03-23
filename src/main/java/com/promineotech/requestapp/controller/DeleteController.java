@@ -16,6 +16,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
 @Validated
 @RequestMapping("/delete")
+
+//Delete interface; sets up UI for deleting object
 public interface DeleteController {
 
 	//@formatter:off

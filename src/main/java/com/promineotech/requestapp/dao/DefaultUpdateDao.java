@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.promineotech.requestapp.entity.RequestType;
 
 @Component
+//Speaks to database using data from controller and service layers
 public class DefaultUpdateDao implements UpdateDao {
 
 	@Autowired

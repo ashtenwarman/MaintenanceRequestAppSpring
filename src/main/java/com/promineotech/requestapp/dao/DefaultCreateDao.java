@@ -23,6 +23,8 @@ import com.promineotech.requestapp.entity.Property;
 import com.promineotech.requestapp.entity.RequestType;
 
 @Component
+
+//Speaks to database using data from controller and service layers
 public class DefaultCreateDao implements CreateDao {
 
 	@Autowired

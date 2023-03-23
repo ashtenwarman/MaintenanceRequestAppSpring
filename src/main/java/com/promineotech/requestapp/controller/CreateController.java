@@ -28,6 +28,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @RequestMapping("/create")
 @OpenAPIDefinition(info = @Info (title = "Maintenance Requests Service"), servers = {
 		@Server(url = "http://localhost:8080", description = "Local Server")})
+
+//Create interface; sets up UI for creating objects
 public interface CreateController {
 
 	//@formatter:off

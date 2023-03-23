@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
+
+//Update-interface implementing class
 public class DefaultUpdateController implements UpdateController {
 	
 	@Autowired

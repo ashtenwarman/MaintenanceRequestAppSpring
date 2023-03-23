@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+//Speaks to database using data from controller and service layers
 public class DefaultGetDao implements GetDao {
 
 	@Autowired

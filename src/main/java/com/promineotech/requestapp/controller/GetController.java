@@ -25,6 +25,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
 @RequestMapping("/get")
 @OpenAPIDefinition(info = @Info (title = "Maintenance Requests Service"), servers = {
 		@Server(url = "http://localhost:8080", description = "Local Server")})
+
+//Get interface; sets up UI for retrieving data
 public interface GetController {
 	//Read requests
 	// @formatter:off

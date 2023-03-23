@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
+
+//Get-interface implementing class
 public class DefaultGetController implements GetController {
 
 	@Autowired
