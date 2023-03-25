@@ -7,7 +7,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.promineotech.requestapp.entity.City;
@@ -109,7 +108,7 @@ public interface CreateController {
 		  @PostMapping("/employee")
 		  @ResponseStatus(code = HttpStatus.CREATED)
 		  void createEmployee(@Valid @RequestBody String employeeName,
-				 @RequestParam String employeePhone);
+				 String employeePhone);
 	  
 	  
 	  @Operation(

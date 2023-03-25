@@ -15,6 +15,7 @@ import com.promineotech.requestapp.entity.RequestType;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -58,17 +59,71 @@ public interface GetController {
 						description = "An unplanned error occurred",
 						content = @Content(
 							mediaType = "application/json"))
+		},
+		parameters = {
+				@Parameter(
+					name = "request type",
+					required = false,
+					allowEmptyValue = true,
+					description = "The type of request")
+						
 		}
 	)				
 	
 		@GetMapping("/requests")
 		@ResponseStatus(code = HttpStatus.OK)
-		List<Request> fetchRequests(
-				@RequestParam(required = false)
-				RequestType requestType);
+		List<Request> getRequests(RequestType requestType);
+	 
+	 
+	 @Operation(
+				summary = "Returns a list of properties",
+				description = "Returns a list of properties given a valid city or address",
+				responses = {
+						@ApiResponse(
+							responseCode = "200",
+							description = "A list of properties are returned",
+							content = @Content(
+								mediaType = "application/json",
+								schema = @Schema(implementation = Property.class))),
+							
+						@ApiResponse(
+								responseCode = "400",
+								description = "Invalid Parameters",
+								content = @Content(
+									mediaType = "application/json")),
+						
+						@ApiResponse(
+								responseCode = "404",
+								description = "No properties were found with the input criteria",
+								content = @Content(
+									mediaType = "application/json")),
+						
+						@ApiResponse(
+								responseCode = "500",
+								description = "An unplanned error occurred",
+								content = @Content(
+									mediaType = "application/json"))
+				},
+						 parameters = {
+						          @Parameter(
+						              name = "property address",
+						              allowEmptyValue = true,
+						              required = false,
+						              description = "The address of the property"),
+						          @Parameter(
+						              name = "city",
+						              allowEmptyValue = true,
+						              required = false,
+						              description = "Get properties by city")}
+			)				
+
 	 
 	 @GetMapping("/properties")
-	 List<Property> fetchProperty(@RequestParam String streetAddress);
+	 List<Property> fetchProperty(
+			 @RequestParam(required = false)
+			 String streetAddress,
+			 @RequestParam(required = false)
+			 String cityName);
 	 
 		// @formatter:on
 

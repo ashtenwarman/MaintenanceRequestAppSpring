@@ -22,13 +22,13 @@ public class DefaultGetController implements GetController {
 	private GetService requestAppService;
 	
 	@Override
-	public List<Request> fetchRequests(RequestType requestType) {
+	public List<Request> getRequests(RequestType requestType) {
 		log.debug("type={}", requestType);
 		return requestAppService.fetchRequests(requestType);
 	}
 	
 	@Override
-	public List<Property> fetchProperty(String streetAddress) {
-		return requestAppService.fetchProperty(streetAddress);
+	public List<Property> fetchProperty(String streetAddress, String cityName) {
+		return requestAppService.fetchProperty(streetAddress, cityName);
 	}
 }

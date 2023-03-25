@@ -11,5 +11,5 @@ public interface GetDao {
 
 	List<Request> fetchRequests(RequestType requestType);
 
-	List<Property> fetchProperty(String streetAddress);
+	List<Property> fetchProperty(String streetAddress, String cityName);
 }

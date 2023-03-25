@@ -3,7 +3,6 @@ package com.promineotech.requestapp.service;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +29,8 @@ public class DefaultGetService implements GetService {
 		List<Request> requests = fetchRequestDao.fetchRequests(requestType);
 		
 		if(requests.isEmpty()) {
-			String msg = String.format("No maintenance requests were found with type={}",
-					requestType);
+			String msg = String.format("No maintenance requests were found with type=%s",
+					requestType.toString());
 			throw new NoSuchElementException(msg);
 		}
 		Collections.sort(requests);
@@ -40,12 +39,13 @@ public class DefaultGetService implements GetService {
 
 	@Transactional
 	@Override
-	public List<Property> fetchProperty(String streetAddress) {
-		List<Property> property = fetchRequestDao.fetchProperty(streetAddress);
+	public List<Property> fetchProperty(String streetAddress, String cityName) {
+		List<Property> property = fetchRequestDao.fetchProperty(streetAddress, cityName);
 		
-		if(Objects.isNull(property)) {
+		if(property.isEmpty()) {
 			throw new NoSuchElementException();
 		}
+		Collections.sort(property);
 		return property;
 	}
 

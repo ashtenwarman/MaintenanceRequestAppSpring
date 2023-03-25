@@ -53,15 +53,17 @@ public class DefaultGetDao implements GetDao {
 	}
 
 	@Override
-	public List<Property> fetchProperty(String streetAddress) {
+	public List<Property> fetchProperty(String streetAddress, String cityName) {
 		String sql = ""
 				+ "SELECT * "
 				+ "FROM property "
-				+ "WHERE street_address = :street_address";
+				+ "WHERE street_address = :street_address "
+				+ "OR city_fk = "
+				+ "(SELECT city_pk FROM city WHERE city_name = :city_name)";
 		
 		Map<String, Object> param = new HashMap<>();
 		param.put("street_address", streetAddress);
-		
+		param.put("city_name", cityName);
 		return jdbcTemplate.query(sql, param, new RowMapper<>() {
 
 			@Override
